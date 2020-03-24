@@ -2,16 +2,15 @@ export const toRna = dna => {
   let rna = '';
 
   for (let i = 0; i < dna.length; i++) {
-    if (dna[i] === 'G') {
-      rna += 'C';
-    } else if (dna[i] === 'C') {
-      rna += 'G';
-    } else if (dna[i] === 'T') {
-      rna += 'A';
-    } else {
-      rna += 'U';
-    }
+    rna += lookupTable[dna[i]];
   }
 
   return rna;
+};
+
+const lookupTable = {
+  G: 'C',
+  C: 'G',
+  T: 'A',
+  A: 'U'
 };
