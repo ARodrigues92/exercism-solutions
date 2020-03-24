@@ -1,14 +1,14 @@
 export const toRna = dna => {
   let rna = '';
 
-  for (let i = 0; i < dna.length; i++) {
-    rna += lookupTable[dna[i]];
+  for (const nucleotide of dna) {
+    rna += rnaConversionTable[nucleotide];
   }
 
   return rna;
 };
 
-const lookupTable = {
+const rnaConversionTable = {
   G: 'C',
   C: 'G',
   T: 'A',
