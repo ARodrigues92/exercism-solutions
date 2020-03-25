@@ -1,11 +1,5 @@
 export const toRna = dna => {
-  let rna = '';
-
-  for (const nucleotide of dna) {
-    rna += rnaConversionTable[nucleotide];
-  }
-
-  return rna;
+  return dna.replace(/[GCTA]/g, match => rnaConversionTable[match]);
 };
 
 const rnaConversionTable = {
