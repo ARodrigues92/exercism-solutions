@@ -1,7 +1,11 @@
+function round(value) {
+  return Math.round(value * 100) / 100;
+}
+
 export const age = (planet, seconds) => {
   const earthYears = seconds / earthYearInSecs;
   const planetYears = earthYears / orbitalPeriods[planet];
-  return Math.round(planetYears * 100) / 100;
+  return round(planetYears);
 };
 
 const orbitalPeriods = {
