@@ -1,13 +1,3 @@
-function round(value) {
-  return Math.round(value * 100) / 100;
-}
-
-export const age = (planet, seconds) => {
-  const earthYears = seconds / earthYearInSecs;
-  const planetYears = earthYears / orbitalPeriods[planet];
-  return round(planetYears);
-};
-
 const orbitalPeriods = {
   mercury: 0.2408467,
   venus: 0.61519726,
@@ -20,3 +10,14 @@ const orbitalPeriods = {
 };
 
 const earthYearInSecs = 31557600;
+
+function round(years, decimals) {
+  const tenPowOfDecimals = Math.pow(10, decimals);
+  return Math.round(years * tenPowOfDecimals) / tenPowOfDecimals;
+}
+
+export const age = (planet, seconds) => {
+  const earthYears = seconds / earthYearInSecs;
+  const planetYears = earthYears / orbitalPeriods[planet];
+  return round(planetYears, 2);
+};
