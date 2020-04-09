@@ -16,6 +16,7 @@ const translateCodon = (codon) => {
       return protein;
     }
   }
+  throw new Error('Invalid codon');
 };
 
 export const translate = (rna) => {
@@ -28,16 +29,10 @@ export const translate = (rna) => {
   const codons = rna.match(/.{1,3}/g);
 
   for (const codon of codons) {
-    if (!stopCodons.includes(codon)) {
-      const protein = translateCodon(codon);
-      if (protein) {
-        proteins.push(protein);
-      } else {
-        throw 'Invalid codon';
-      }
-    } else {
-      return proteins;
+    if (stopCodons.includes(codon)) {
+      break;
     }
+    proteins.push(translateCodon(codon));
   }
   return proteins;
 };
