@@ -4,14 +4,18 @@ export class Matrix {
   }
 
   get rows() {
-    const rows = this.matrix
-      .split('\n')
-      .map(element => element.split(' ').map(Number));
-    return rows;
+    if (!this._rows) {
+      this._rows = this.matrix
+        .split('\n')
+        .map(element => element.split(' ').map(Number));
+    }
+    return this._rows;
   }
 
   get columns() {
-    const columns = this.rows[0].map((_, i) => this.rows.map(elt => elt[i]));
-    return columns;
+    if (!this._columns) {
+      this._columns = this.rows[0].map((_, i) => this.rows.map(elt => elt[i]));
+    }
+    return this._columns;
   }
 }
