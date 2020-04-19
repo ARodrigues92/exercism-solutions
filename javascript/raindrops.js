@@ -1,27 +1,15 @@
 export const convert = input => {
-  let factors = [];
+  let result = '';
 
-  for (let i = 0; i <= input; i++) {
-    if (input % i === 0) {
-      factors.push(i);
-    }
+  if (input % 3 === 0) {
+    result += 'Pling';
+  }
+  if (input % 5 === 0) {
+    result += 'Plang';
+  }
+  if (input % 7 === 0) {
+    result += 'Plong';
   }
 
-  const result = factors.reduce((acc, ele) => {
-    if (ele === 3) {
-      return acc + 'Pling';
-    } else if (ele === 5) {
-      return acc + 'Plang';
-    } else if (ele === 7) {
-      return acc + 'Plong';
-    } else {
-      return acc;
-    }
-  }, '');
-
-  if (result) {
-    return result;
-  } else {
-    return String(input);
-  }
+  return result || String(input);
 };
