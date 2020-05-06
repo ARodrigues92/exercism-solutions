@@ -1,3 +1,9 @@
+/*
+Reverse a string
+
+For example: input: "cool" output: "looc"
+*/
+
 export const reverseString = string => {
   let reversed = '';
   for (let i = string.length - 1; i >= 0; i--) {
